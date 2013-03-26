@@ -2,6 +2,12 @@
 
 A simple brainfuck compiler targeting asm.js.
 
+## Compiled examples
+
+http://olahol.github.com/bf2asmjs
+
+BFSelf the self interpreter is the most fun :)
+
 ## Example
 
 ```
