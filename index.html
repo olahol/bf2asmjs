@@ -11,19 +11,24 @@
 <div class="container">
   <div class="row">
     <div class="span12"><center><h1>brainfuck asm.js</h1></center></div>
-    <pre style="height: 300px;" class="span6" id="output"></pre>
-    <div class="span5"><div id="modules" class="btn-toolbar"></div><div>
+    <div class="span6">
+      <textarea style="width: 98%" placeholder="input" id="input"></textarea>
+      <pre style="min-height: 300px;" id="output"></pre>
+    </div>
+    <div class="span6"><div id="modules" class="btn-toolbar"></div><div>
   </div>
 </div>
 <script src="bf.js"></script>
 <script>
+var inputPtr = 0;
 $.each(window, function (item) {
   if (item.substr(0, 2) == "BF") {
     var $btn = $("<button class='btn btn-primary'>Run " + item + "</button>");
     $("#modules").append($btn);
     $btn.click(function () {
+      inputPtr = 0;
       $("#output").empty();
-      eval(item + ".reset(4096)");
+      eval(item + ".reset()");
       eval(item + ".run()");
     });
   }
